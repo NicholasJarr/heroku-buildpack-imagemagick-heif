@@ -94,6 +94,8 @@ export CPATH="${CPATH//$BUILD_DIR//app}:\$CPATH"
 export C_INCLUDE_PATH="${C_INCLUDE_PATH//$BUILD_DIR//app}:\$C_INCLUDE_PATH:"
 export CPLUS_INCLUDE_PATH="${CPLUS_INCLUDE_PATH//$BUILD_DIR//app}:\$CPLUS_INCLUDE_PATH"
 export MAGICK_CONFIGURE_PATH=/etc/ImageMagick-6
+
+find $BUILD_DIR/vendor/imagemagick -type f -ipath '*/pkgconfig/*.pc' | xargs --no-run-if-empty -n 1 sed -i -e 's!^prefix=\(.*\)$!prefix=/app/vendor/imagemagick!g'
 EOF
 
 echo "Rewrite package-config files" | arrow
