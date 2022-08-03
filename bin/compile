@@ -9,6 +9,7 @@ BUILDPACK_NAME=imagemagick
 BINARY_NAME=imagemagick-${STACK}.tar.gz
 BIN_DIR=$(cd "$(dirname "$0")"; pwd) # absolute path
 ROOT_DIR=$(dirname "$BIN_DIR")
+LP_DIR=`cd $(dirname $0); cd ..; pwd`
 
 function indent() {
   c='s/^/       /'
@@ -60,7 +61,7 @@ vendor "${ROOT_DIR}/build/${BINARY_NAME}" "$BUILD_DIR/vendor/imagemagick"
 
 echo "Configuring build environment" | arrow
 
-cat <<EOF > $ROOT_DIR/export
+cat <<EOF > $LP_DIR/export
 export PATH="/app/bin:/app/vendor/imagemagick/bin:$PATH:\$PATH"
 export LD_LIBRARY_PATH="\$LD_LIBRARY_PATH:$LD_LIBRARY_PATH"
 export LIBRARY_PATH="\$LIBRARY_PATH:$LIBRARY_PATH"
