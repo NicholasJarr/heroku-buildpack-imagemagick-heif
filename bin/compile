@@ -60,7 +60,7 @@ vendor "${ROOT_DIR}/build/${BINARY_NAME}" "$BUILD_DIR/vendor/imagemagick"
 
 echo "Configuring build environment" | arrow
 
-cat <<EOF > export
+cat <<EOF > $ROOT_DIR/export
 export PATH="/app/bin:/app/vendor/imagemagick/bin:$PATH:\$PATH"
 export LD_LIBRARY_PATH="\$LD_LIBRARY_PATH:$LD_LIBRARY_PATH"
 export LIBRARY_PATH="\$LIBRARY_PATH:$LIBRARY_PATH"
