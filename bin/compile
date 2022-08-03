@@ -55,6 +55,9 @@ function vendor() {
   export LD_LIBRARY_PATH="$path/lib:$LD_LIBRARY_PATH"
 }
 
+echo "Previous PATH" | arrow
+echo $PATH
+
 echo "Vendoring binaries" | arrow
 
 vendor "${ROOT_DIR}/build/${BINARY_NAME}" "$BUILD_DIR/vendor/imagemagick"
