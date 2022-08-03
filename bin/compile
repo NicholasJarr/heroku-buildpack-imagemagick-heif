@@ -75,6 +75,7 @@ echo "Configuring build environment" | arrow
 
 # give environment to later buildpacks
 export | grep -E -e ' (PATH|LD_LIBRARY_PATH|LIBRARY_PATH|PKG_CONFIG_PATH|CPPPATH|CPATH|C_INCLUDE_PATH|CPLUS_INCLUDE_PATH|MAGICK_CONFIGURE_PATH)='  > "$LP_DIR/export"
+echo $LP_DIR
 cat "$LP_DIR/export"
 
 echo "Building runtime environment" | arrow
